@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.app.assettelematicsyask.Models.VehicleType;
 import com.app.assettelematicsyask.databinding.VehicleTypeRowBinding;
 import com.bumptech.glide.Glide;
 
@@ -16,10 +17,10 @@ import java.util.List;
 
 public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.VehicleViewHolder> {
     private Context context;
-    private List<VehicleTypeModel> vehicleTypeModelList;
+    private List<VehicleType> vehicleTypeModelList;
     private LayoutInflater layoutInflater;
 
-    public VehicleAdapter(Context context,List<VehicleTypeModel> vehicleTypeModelList) {
+    public VehicleAdapter(Context context,List<VehicleType> vehicleTypeModelList) {
         this.context = context;
         this.vehicleTypeModelList = vehicleTypeModelList;
     }
@@ -37,9 +38,9 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.VehicleV
 
     @Override
     public void onBindViewHolder(@NonNull VehicleViewHolder holder, int position) {
-        VehicleTypeModel data = vehicleTypeModelList.get(position);
-        Glide.with(context).load(data.getImage()).into(holder.binding.ivImage);
-        holder.binding.tvName.setText(data.getName());
+        VehicleType data = vehicleTypeModelList.get(position);
+//        Glide.with(context).load(data.getImage()).into(holder.binding.ivImage);
+        holder.binding.tvName.setText(data.getText());
 
     }
 
